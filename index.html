@@ -11,5 +11,37 @@
           <li><a href="https://whyhahm.blogspot.com/p/the-better-howto-on-everything.html">Instagram livestream recording guide</a></li>
           <li><a href="https://github.com/qsniyg/maxurl">My Github</a></li>
       </ul>
+
+      <p>Personal contact info:</p>
+
+      <ul>
+          <li>Email: <span id="replaceme">(if you're seeing this, javascript is not enabled. I use protonmail.com, and my @ is my username - same as github and matrix below)</span></li>
+          <li>Matrix: <code>@qsniyg:tedomum.net</code></li>
+      </ul>
+
+<script>
+var replaceme_span = document.getElementById("replaceme");
+var replaced = false;
+
+var do_replace = function() {
+	if (replaced) return;
+
+	// do this at the beginning in case there's an error
+	replaced = true;
+	document.onmousemove = null;
+
+	var our_href = location.href;
+	var domain = our_href.match(/^[a-z]+:\/\/([^/]+)/);
+	var username = domain[1].match(/^([a-z]+)\./)[1];
+	var some_github_repo = "https://github.com/ValveSoftware/Proton/";
+	var neutron = some_github_repo.replace(/.*\/([a-zA-Z]+)\/*$/, "$1").toLowerCase();
+	var company = some_github_repo.replace(/^[a-z]+:\/\/[^/]+(\.[^/.]+)\/.*/, "$1");
+	var some_character = replaceme_span.innerText.match(/my (.) is my/)[1];
+
+	replaceme_span.innerText = username + some_character + neutron + "mail" + company;
+};
+
+document.onmousemove = function() {do_replace();}
+</script>
   </body>
 </html>
