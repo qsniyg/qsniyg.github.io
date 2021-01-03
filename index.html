@@ -41,6 +41,7 @@ var do_replace = function() {
 	replaceme_span.innerText = username + some_character + neutron + "mail" + company;
 };
 
+// the reason for this event handler is because spambots are (probably) much less likely to run this event
 document.onmousemove = function() {do_replace();}
 </script>
   </body>
